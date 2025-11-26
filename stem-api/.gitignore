@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+outputs/
+uploads/
+pretrained_models/
+test_audio.wav
+test_target.wav
+test_reference.wav
+test_analysis.wav

@@ -1,0 +1,29 @@
+name: stem-api-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - ffmpeg
+  # Pre-install scientific stack via Conda to avoid Pip build failures on M1
+  - numpy
+  - pandas
+  - scipy
+  - numba
+  - llvmlite
+  - pip
+  - pip:
+    - setuptools<60.0.0  # Fix for distutils.msvccompiler error
+    - wheel
+    - spleeter
+    - fastapi==0.122.0
+    - uvicorn==0.38.0
+    - pydantic==2.12.5
+    - python-multipart
+    - demucs==4.0.1
+    - requests
+    - aiofiles
+    - essentia==2.1b6.dev1389
+    - matchering==2.0.6
+    - numpy==1.26.4
+    - typing_extensions==4.15.0
