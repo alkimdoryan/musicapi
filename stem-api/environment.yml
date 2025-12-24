@@ -11,9 +11,10 @@ dependencies:
   - scipy
   - numba
   - llvmlite
+  - rubberband # System dependency for time-stretch
   - pip
   - pip:
-    - setuptools<60.0.0  # Fix for distutils.msvccompiler error
+    - setuptools<60.0.0
     - wheel
     - spleeter
     - fastapi==0.122.0
@@ -27,3 +28,6 @@ dependencies:
     - matchering==2.0.6
     - numpy==1.26.4
     - typing_extensions==4.15.0
+    - pedalboard
+    - pyrubberband
+    - soundfile

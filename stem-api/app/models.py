@@ -10,7 +10,7 @@ class StemResponse(BaseModel):
 
 class AnalysisResponse(BaseModel):
     filename: str
-    bpm: float
+    bpm: int
     key: str
     scale: str
     loudness: float

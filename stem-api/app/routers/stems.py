@@ -10,12 +10,12 @@ router = APIRouter(prefix="/stems", tags=["stems"])
 @router.post("/extract", response_model=StemResponse)
 async def extract_stems(
     audio_file: UploadFile = File(...),
-    separation_model: str = Form("ht_demucs", description="Model to use: ht_demucs"),
+    separation_model: str = Form("ht_demucs", description="Model to use: ht_demucs, ht_demucs_ft"),
 ):
     start_time = time.time()
     
     # Validate model name
-    valid_models = ["ht_demucs"]
+    valid_models = ["ht_demucs", "ht_demucs_ft"]
     if separation_model not in valid_models:
         raise HTTPException(status_code=400, detail=f"Invalid model name. Only {valid_models} is supported.")
 
@@ -25,7 +25,7 @@ async def extract_stems(
     
     try:
         # Dispatch to appropriate service
-        if separation_model == "ht_demucs":
+        if separation_model in ["ht_demucs", "ht_demucs_ft"]:
             stems = await demucs.run_model(str(file_path), separation_model)
         else:
             raise HTTPException(status_code=400, detail="Model not implemented")

@@ -23,7 +23,7 @@ def analyze_audio(audio_path: str) -> Dict[str, Any]:
     # RhythmExtractor2013 is a robust beat tracker
     rhythm_extractor = es.RhythmExtractor2013(method="multifeature")
     bpm, beats, beats_confidence, _, beats_intervals = rhythm_extractor(audio)
-    features["bpm"] = float(bpm)
+    features["bpm"] = int(round(bpm))
     features["beats_count"] = len(beats)
     
     # 2. Tonal (Key, Scale)

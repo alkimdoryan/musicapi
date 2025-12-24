@@ -22,6 +22,8 @@ async def run_model(audio_path: str, model_name: str = "htdemucs") -> Dict[str, 
         demucs_model = "htdemucs"
     elif model_name == "ht_demucs":
         demucs_model = "htdemucs"
+    elif model_name == "ht_demucs_ft":
+        demucs_model = "htdemucs_ft"
     else:
         demucs_model = model_name
 

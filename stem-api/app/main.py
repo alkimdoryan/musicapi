@@ -3,7 +3,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from app.routers import stems, analysis, mastering
+from app.routers import stems, analysis, mastering, effects, timestretch
 from app.config import OUTPUT_DIR
 
 app = FastAPI(title="Music Stem Separation & Analysis API")
@@ -14,6 +14,9 @@ app.mount("/outputs", StaticFiles(directory=OUTPUT_DIR), name="outputs")
 app.include_router(stems.router)
 app.include_router(analysis.router)
 app.include_router(mastering.router)
+
+app.include_router(effects.router)
+app.include_router(timestretch.router)
 
 @app.get("/")
 async def root():

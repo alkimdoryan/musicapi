@@ -8,3 +8,6 @@ essentia==2.1b6.dev1389
 matchering==2.0.6
 numpy==1.26.4
 typing_extensions==4.15.0
+pedalboard
+pyrubberband
+soundfile
