@@ -1,6 +1,7 @@
 import asyncio
 import shlex
 import subprocess
+import sys
 from typing import Dict
 from pathlib import Path
 from app.config import OUTPUT_DIR
@@ -31,8 +32,9 @@ async def run_model(audio_path: str, model_name: str = "htdemucs") -> Dict[str, 
     output_path.mkdir(exist_ok=True, parents=True)
 
     # Construct command
-    # demucs -n <model> -o <output_dir> <audio_file>
-    cmd = f"demucs -n {demucs_model} -o {shlex.quote(str(output_path))} {shlex.quote(audio_path)}"
+    # python -m demucs.separate -n <model> -o <output_dir> <audio_file>
+    # We use -m demucs.separate to ensure we use the same python environment
+    cmd = f"{sys.executable} -m demucs.separate -n {demucs_model} -o {shlex.quote(str(output_path))} {shlex.quote(audio_path)}"
     
     # Run in a subprocess to avoid blocking the event loop
     # Note: Demucs is heavy, running it in a threadpool or process pool is better, 
