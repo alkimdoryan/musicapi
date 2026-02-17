@@ -19,17 +19,17 @@ We strongly recommend using **Conda** to manage dependencies, especially for M1/
 
 2.  **Activate the environment:**
     ```bash
-    conda activate stem-api-env
+    conda activate musicapi-env
     ```
 
 3.  **Run the server:**
     ```bash
-    uvicorn app.main:app --reload
+    uvicorn app.main:app --reload --port 8001
     ```
 
 ## API Usage
 
-Access the interactive Swagger UI at `http://127.0.0.1:8000/docs`.
+Access the interactive Swagger UI at `http://127.0.0.1:8001/docs`.
 
 ### 1. Stem Separation
 **POST** `/stems/extract`

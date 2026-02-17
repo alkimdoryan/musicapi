@@ -1,4 +1,4 @@
-name: stem-api-env
+name: musicapi-env
 channels:
   - conda-forge
   - defaults
@@ -6,17 +6,16 @@ dependencies:
   - python=3.9
   - ffmpeg
   # Pre-install scientific stack via Conda to avoid Pip build failures on M1
-  - numpy
-  - pandas
+  - numpy=1.26.4
+  - pandas<2.1
   - scipy
   - numba
   - llvmlite
-  - rubberband # System dependency for time-stretch
+  # rubberband: install via homebrew (brew install rubberband)
   - pip
   - pip:
     - setuptools<60.0.0
     - wheel
-    - spleeter
     - fastapi==0.122.0
     - uvicorn==0.38.0
     - pydantic==2.12.5
@@ -26,8 +25,8 @@ dependencies:
     - aiofiles
     - essentia==2.1b6.dev1389
     - matchering==2.0.6
-    - numpy==1.26.4
     - typing_extensions==4.15.0
     - pedalboard
+    - librosa
     - pyrubberband
     - soundfile
